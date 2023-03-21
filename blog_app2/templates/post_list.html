@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog List</title>
+</head>
+<body>
+<a href="{% url 'logout'  %}"> Logout</a>
+<h1>Hello, {{ request.user}}</h1>
+<h1>Blogs</h1>
+{% for post in posts %}
+<ul>
+    <li><h2>{{post.title}}</h2></li>
+   </ul>
+            <pre>{{post.body}}</pre>
+            <pre>{{post.date}}</pre>
+            <pre>{{post.author}}</pre>
+   <a href="{% url 'update' post.pk %}">Update blog</a>
+    <a href="{% url 'delete' post.pk %}  ">Delete</a>
+    <hr>
+
+{% endfor %}
+
+</body>
+</html>
